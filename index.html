@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Tattvam</title>
+<style>
+  :root { --plum:#5A2E42; --deep:#3F1F2E; --ink:#2A1820; --soft:#6B5560; --ivory:#F7F4F5; --line:rgba(42,24,32,0.14); }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--ivory); color:var(--ink); line-height:1.65; font-size:16px;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; -webkit-font-smoothing:antialiased; }
+  .page { max-width:720px; margin:0 auto; padding:48px 24px 96px; }
+  header.brand { text-align:center; padding:16px 0 36px; }
+  header.brand .dev { font-size:44px; font-weight:600; color:var(--plum); line-height:1.3; }
+  header.brand .lat { font-size:12px; font-weight:600; letter-spacing:0.4em; color:var(--deep); text-transform:uppercase; margin-left:0.4em; }
+  nav { text-align:center; margin-bottom:40px; font-size:14px; }
+  nav a { color:var(--plum); text-decoration:none; font-weight:600; }
+  nav a:hover { text-decoration:underline; }
+  nav .sep { color:var(--soft); margin:0 10px; }
+  h1 { font-size:28px; font-weight:700; color:var(--deep); letter-spacing:-0.01em; }
+  h2 { font-size:20px; font-weight:600; color:var(--deep); margin-top:36px; }
+  h3 { font-size:16px; font-weight:600; margin-top:24px; }
+  a { color:var(--plum); }
+  hr { border:none; border-top:1px solid var(--line); margin:32px 0; }
+  table { border-collapse:collapse; width:100%; font-size:14px; display:block; overflow-x:auto; }
+  th, td { text-align:left; padding:9px 14px 9px 0; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--soft); }
+  blockquote { margin:0; padding:12px 20px; border-left:3px solid var(--plum); background:#fff; border-radius:0 10px 10px 0; color:var(--soft); }
+  code { background:#ECE4E8; padding:1px 5px; border-radius:4px; font-size:0.9em; }
+  footer { margin-top:64px; padding-top:20px; border-top:1px solid var(--line); font-size:12.5px; color:var(--soft); text-align:center; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="brand">
+    <div class="dev" lang="sa">तत्त्वम्</div>
+    <div class="lat">Tattvam</div>
+  </header>
+  <nav><a href="./">Privacy Policy</a><span class="sep">·</span><a href="./terms.html">Terms of Service</a></nav>
+  <h1>Privacy Policy — Tattvam</h1>
+<p><strong>Last updated:</strong> 17 June 2026
+<strong>Data Fiduciary / Controller:</strong> Ateeshay Jain (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;)
+<strong>Contact:</strong> <a href="mailto:ateeshay.jain@gmail.com">ateeshay.jain@gmail.com</a>
+<strong>Applies to:</strong> the Tattvam mobile application (the &quot;App&quot;) on iOS and Android.</p>
+<p>Tattvam is an educational app for exploring ancient Indian philosophy. We have
+designed it to collect as little personal data as possible. Most of your data
+stays on your device. This policy explains what we collect, where it lives, what
+leaves your device, and the rights you have.</p>
+<p>We are based in India, so this policy is written to comply with India&#39;s Digital
+Personal Data Protection Act, 2023 (&quot;DPDP Act&quot;) and, for users in the European
+Economic Area and the United Kingdom, the EU/UK General Data Protection
+Regulation (&quot;GDPR&quot;).</p>
+<hr>
+<h2>1. You can use Tattvam without an account</h2>
+<p>Tattvam works fully as a <strong>guest</strong>. You are not required to create an account or
+provide any personal information to read content, track your progress, take
+quizzes, journal, or play the Inner Compass game.</p>
+<ul>
+<li><strong>As a guest:</strong> all of your data (progress, streaks, saved quotes, journal
+entries, preferences, game history) is stored <strong>only on your device</strong>. None of
+it is sent to us or to any server.</li>
+<li><strong>With an account (optional):</strong> if you choose to sign in, a limited set of data
+is stored in our cloud database so it can sync and (where you opt in) power
+community features. Sign-in uses Apple or Google via our authentication
+provider (Supabase). We do not operate our own password system.</li>
+</ul>
+<hr>
+<h2>2. What we collect and where it lives</h2>
+<h3>A. Data stored only on your device (never sent to us)</h3>
+<p>Stored locally using your device&#39;s app storage (AsyncStorage) and, for
+authentication tokens, the operating system&#39;s secure keystore (Expo
+SecureStore / iOS Keychain / Android Keystore):</p>
+<ul>
+<li>Reading and layer progress, completed questions, daily-question state.</li>
+<li>Gamification state (XP, streaks, ranks) when used as a guest.</li>
+<li>Inner Compass game run history.</li>
+<li>Saved quotes and journal entries when used as a guest.</li>
+<li>App preferences (e.g. simplified/scholarly reading mode, selected themes,
+notification settings, language).</li>
+<li>Your optional, self-supplied Anthropic (Claude) API key — see Section 4.</li>
+<li>Your authentication session tokens, if you sign in (held in the secure
+keystore, not in normal app storage).</li>
+</ul>
+<p>We cannot see this data. It is removed if you delete the App or clear its data.</p>
+<h3>B. Data stored in our cloud database (only if you create an account)</h3>
+<p>We use <strong>Supabase</strong> (project reference <code>dkjlludfdfmfgzxfdapr</code>) as our hosted
+database and authentication backend. When you sign in, the following may be
+stored, each row protected so that you can only read or write your own records
+(Row-Level Security):</p>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>What it holds</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>user_profiles</code></td>
+<td>A display name, optional avatar URL, wisdom XP, current/longest streak, last-active date, and your selected themes. The display name and avatar come from the Apple/Google account you sign in with, or default to &quot;Seeker&quot;.</td>
+</tr>
+<tr>
+<td><code>user_progress</code></td>
+<td>Which questions and layers you have completed and XP earned.</td>
+</tr>
+<tr>
+<td><code>user_journal_entries</code></td>
+<td>Your private written reflections. <strong>Private to you</strong> — readable and writable only by you.</td>
+</tr>
+<tr>
+<td><code>user_collections</code></td>
+<td>Quotes you have saved. Private to you.</td>
+</tr>
+<tr>
+<td><code>user_reactions</code></td>
+<td>Your Agree / Disagree / Hmm reactions on certain content items.</td>
+</tr>
+<tr>
+<td><code>community_reflections</code></td>
+<td>A reflection you have <strong>explicitly chosen to share</strong> with the community (opt-in). See Section 3.</td>
+</tr>
+</tbody></table>
+<p>We also receive, from our authentication provider at sign-in, the basic account
+identifier and profile fields (name, email-derived identifier, avatar) that
+Apple or Google passes through to create your account.</p>
+<p>We do <strong>not</strong> collect your contacts, photos, precise location, advertising
+identifiers, or browsing history. We do <strong>not</strong> use any analytics or tracking
+SDK. We do <strong>not</strong> track you across other apps or websites.</p>
+<h3>C. Bundled content</h3>
+<p>The philosophical content in the App (questions, quotes, translations) is
+shipped inside the App as static files. It contains no personal data and does
+not require a network connection to read.</p>
+<hr>
+<h2>3. Community Reflections (opt-in, anonymous)</h2>
+<p>On certain reflection screens you may choose to share a written reflection with
+other users. This is <strong>off by default</strong> and happens only when you actively tap
+&quot;Share&quot;.</p>
+<p>When you share, your reflection text is stored in the <code>community_reflections</code>
+table linked to your account internally so that you can later edit or withdraw
+it. However, when other users view community reflections, they are served
+through a special read-only database function (a <code>SECURITY DEFINER</code> function)
+that returns only an aggregate count and anonymized excerpts — <strong>it never
+exposes your user ID or any identifier</strong>. Other users cannot tell who wrote a
+reflection.</p>
+<p>You can <strong>withdraw</strong> a shared reflection at any time, which removes it from
+public view. Please do not include personal or sensitive information in text you
+choose to share.</p>
+<hr>
+<h2>4. The &quot;Ask About This&quot; AI chat (optional, bring-your-own key)</h2>
+<p>The App includes an optional AI chat feature. To use it, <strong>you</strong> supply your own
+Anthropic (Claude) API key, which is stored only on your device.</p>
+<ul>
+<li>When you send a chat message, your message and the relevant question context
+are sent <strong>directly from your device to Anthropic&#39;s API</strong> (<code>api.anthropic.com</code>)
+using your key. The data does not pass through our servers.</li>
+<li>Anthropic&#39;s handling of that data is governed by <strong>Anthropic&#39;s own privacy
+policy and terms</strong>, which apply to your use of your own key. Please review them
+at anthropic.com.</li>
+<li>We never receive your API key or your chat content.</li>
+</ul>
+<p>If you do not add an API key, this feature is inactive and no chat data leaves
+your device.</p>
+<hr>
+<h2>5. Notifications</h2>
+<p>The App can show <strong>local reminders</strong> (e.g. a daily-practice nudge) that are
+scheduled on your device. We do <strong>not</strong> run a push-notification server and we do
+<strong>not</strong> collect or transmit device push tokens. You can disable notifications in
+your device settings at any time.</p>
+<h2>6. Sharing to WhatsApp / other apps</h2>
+<p>If you share a question to WhatsApp or another app, the App opens that app with
+a pre-filled text message via a system link. No personal data is sent to us in
+this process; what you share, and with whom, is controlled entirely by you in
+the other app.</p>
+<hr>
+<h2>7. Third parties we rely on</h2>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Role</th>
+<th>When data is involved</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Supabase</strong> (database &amp; auth host)</td>
+<td>Stores account data and powers sign-in</td>
+<td>Only if you create an account</td>
+</tr>
+<tr>
+<td><strong>Apple / Google</strong> (sign-in providers)</td>
+<td>Authenticate you</td>
+<td>Only if you sign in with them</td>
+</tr>
+<tr>
+<td><strong>Anthropic</strong> (Claude API)</td>
+<td>Powers the optional AI chat</td>
+<td>Only if you add your own API key and use the chat</td>
+</tr>
+</tbody></table>
+<p>We do not sell your personal data, and we do not share it with advertisers or
+data brokers.</p>
+<hr>
+<h2>8. Purposes and legal bases for processing</h2>
+<p>We process personal data only to:</p>
+<ul>
+<li>provide and maintain the App and your account;</li>
+<li>save and sync your progress and saved content;</li>
+<li>power opt-in community reflections;</li>
+<li>keep the service secure and prevent abuse.</li>
+</ul>
+<p>Under GDPR, our legal bases are <strong>performance of a contract</strong> (providing the App
+and account you requested), <strong>consent</strong> (for optional features such as community
+sharing and notifications, withdrawable at any time), and our <strong>legitimate
+interests</strong> in operating and securing the service. Under the DPDP Act, we
+process personal data on the basis of your <strong>consent</strong> and for the specified
+purposes above.</p>
+<h2>9. Data retention</h2>
+<ul>
+<li>Local on-device data persists until you delete it or uninstall the App.</li>
+<li>Cloud account data is retained while your account exists. If you ask us to
+delete your account, we delete your associated rows (profile, progress,
+journal, collections, reactions, and reflections). Account deletion cascades
+from your authentication record by design.</li>
+</ul>
+<h2>10. Children&#39;s data</h2>
+<p>Tattvam is intended for a general audience and is <strong>not directed at children</strong>.
+We do not knowingly collect personal data from children. Under the DPDP Act,
+processing the data of a child (under 18 in India) requires verifiable parental
+consent; we do not knowingly process such data and ask that minors use guest
+mode (which stores nothing with us) or obtain a parent&#39;s/guardian&#39;s consent
+before creating an account. Under GDPR, the App is not intended for children
+under 16. If you believe a child has provided us personal data, contact us and
+we will delete it.</p>
+<h2>11. International transfers</h2>
+<p>If you create an account, your account data is stored on Supabase&#39;s hosted
+infrastructure, which may be located outside your country (including outside
+India or the EEA). Where required, such transfers are made with appropriate
+safeguards. Guest data never leaves your device and is not transferred.</p>
+<h2>12. Security</h2>
+<p>Account data is protected by Row-Level Security so that only you can read or
+write your own records. Authentication tokens are stored in your device&#39;s secure
+keystore. Network connections use HTTPS. No method of transmission or storage is
+perfectly secure, but we apply reasonable, industry-standard safeguards.</p>
+<hr>
+<h2>13. Your rights</h2>
+<p>You can exercise the following rights. Many are also available directly in the
+App.</p>
+<p><strong>Everyone (in-app):</strong></p>
+<ul>
+<li><strong>Access / portability:</strong> your on-device data is yours; account data can be
+exported on request (see contact below).</li>
+<li><strong>Erasure:</strong> delete the App, clear its data, or sign out to clear local data;
+request account deletion to remove cloud data.</li>
+<li><strong>Withdraw consent:</strong> turn off notifications, withdraw shared community
+reflections, or remove your AI API key at any time.</li>
+</ul>
+<p><strong>Under the DPDP Act (India)</strong>, you have the right to access a summary of your
+personal data and processing, to correction and erasure, to grievance redressal,
+and to nominate another person to exercise your rights in the event of death or
+incapacity.</p>
+<p><strong>Under GDPR (EEA/UK)</strong>, you have the rights of access, rectification, erasure,
+restriction, portability, and objection, and the right to lodge a complaint with
+your data protection authority.</p>
+<p>To exercise any right, or to raise a grievance, contact us at
+<strong><a href="mailto:ateeshay.jain@gmail.com">ateeshay.jain@gmail.com</a></strong>. We will respond within the timelines required by
+applicable law.</p>
+<h2>14. Changes to this policy</h2>
+<p>We may update this policy. Material changes will be reflected by updating the
+&quot;Last updated&quot; date and, where appropriate, an in-app notice.</p>
+<h2>15. Contact / Grievance Officer</h2>
+<p>Ateeshay Jain
+Email: <strong><a href="mailto:ateeshay.jain@gmail.com">ateeshay.jain@gmail.com</a></strong></p>
+<p>For users in India, this email also serves as the contact point for grievances
+under the DPDP Act.</p>
+
+
+  <footer>Tattvam · Contact: <a href="mailto:ateeshay.jain@gmail.com">ateeshay.jain@gmail.com</a></footer>
+</div>
+</body>
+</html>
