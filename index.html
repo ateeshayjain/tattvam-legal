@@ -41,7 +41,7 @@
 <p><strong>Last updated:</strong> 17 June 2026
 <strong>Data Fiduciary / Controller:</strong> Ateeshay Jain (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;)
 <strong>Contact:</strong> <a href="mailto:ateeshay.jain@gmail.com">ateeshay.jain@gmail.com</a>
-<strong>Applies to:</strong> the Tattvam mobile application (the &quot;App&quot;) on iOS and Android.</p>
+<strong>Applies to:</strong> the Tattvam mobile application (the &quot;App&quot;) on iOS.</p>
 <p>Tattvam is an educational app for exploring ancient Indian philosophy. We have
 designed it to collect as little personal data as possible. Most of your data
 stays on your device. This policy explains what we collect, where it lives, what
@@ -72,7 +72,7 @@ authentication tokens, the operating system&#39;s secure keystore (Expo
 SecureStore / iOS Keychain / Android Keystore):</p>
 <ul>
 <li>Reading and layer progress, completed questions, daily-question state.</li>
-<li>Gamification state (XP, streaks, ranks) when used as a guest.</li>
+<li>Gamification state when used as a guest (XP, streaks, ranks, quote-guessing history, daily quests, quote-collection progress, and stances you take on philosophical tensions).</li>
 <li>Inner Compass game run history.</li>
 <li>Saved quotes and journal entries when used as a guest.</li>
 <li>App preferences (e.g. simplified/scholarly reading mode, selected themes,
@@ -118,6 +118,10 @@ stored, each row protected so that you can only read or write your own records
 <td><code>community_reflections</code></td>
 <td>A reflection you have <strong>explicitly chosen to share</strong> with the community (opt-in). See Section 3.</td>
 </tr>
+<tr>
+<td><code>sabha_rooms</code> / <code>sabha_members</code> / <code>sabha_events</code></td>
+<td>If you join a live Sabhā multiplayer session: the room code, an anonymized handle, and the game-event log (choices in the game). No reflection or journal text is ever stored here, and stale rooms are automatically deleted within about 2 days.</td>
+</tr>
 </tbody></table>
 <p>We also receive, from our authentication provider at sign-in, the basic account
 identifier and profile fields (name, email-derived identifier, avatar) that
@@ -125,6 +129,10 @@ Apple or Google passes through to create your account.</p>
 <p>We do <strong>not</strong> collect your contacts, photos, precise location, advertising
 identifiers, or browsing history. We do <strong>not</strong> use any analytics or tracking
 SDK. We do <strong>not</strong> track you across other apps or websites.</p>
+<p>If crash reporting is enabled in a given release, anonymous crash reports
+(stack trace, device model, OS version — configured to exclude personal
+content and request data) are sent to <strong>Sentry</strong> to help us fix bugs. Crash
+reports are not used for advertising or profiling.</p>
 <h3>C. Bundled content</h3>
 <p>The philosophical content in the App (questions, quotes, translations) is
 shipped inside the App as static files. It contains no personal data and does
@@ -246,10 +254,11 @@ perfectly secure, but we apply reasonable, industry-standard safeguards.</p>
 App.</p>
 <p><strong>Everyone (in-app):</strong></p>
 <ul>
-<li><strong>Access / portability:</strong> your on-device data is yours; account data can be
-exported on request (see contact below).</li>
-<li><strong>Erasure:</strong> delete the App, clear its data, or sign out to clear local data;
-request account deletion to remove cloud data.</li>
+<li><strong>Access / portability:</strong> your on-device data is yours; use <strong>Profile → Export
+My Data</strong> in the App to export everything at any time (or contact us).</li>
+<li><strong>Erasure:</strong> use <strong>Profile → Delete Account</strong> in the App to permanently erase
+your account and all associated cloud data at any time; deleting the App or
+clearing its data removes local data.</li>
 <li><strong>Withdraw consent:</strong> turn off notifications, withdraw shared community
 reflections, or remove your AI API key at any time.</li>
 </ul>
