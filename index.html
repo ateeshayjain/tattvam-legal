@@ -38,7 +38,7 @@
   </header>
   <nav><a href="./">Privacy Policy</a><span class="sep">·</span><a href="./terms.html">Terms of Service</a></nav>
   <h1>Privacy Policy — Tattvam</h1>
-<p><strong>Last updated:</strong> 6 July 2026
+<p><strong>Last updated:</strong> 9 August 2026
 <strong>Data Fiduciary / Controller:</strong> Ateeshay Jain (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;)
 <strong>Contact:</strong> <a href="mailto:ateeshay.jain@gmail.com">ateeshay.jain@gmail.com</a>
 <strong>Applies to:</strong> the Tattvam mobile application (the &quot;App&quot;) on iOS.</p>
@@ -59,10 +59,16 @@ quizzes, journal, or play the Inner Compass game.</p>
 <li><strong>As a guest:</strong> all of your data (progress, streaks, saved quotes, journal
 entries, preferences, game history) is stored <strong>only on your device</strong>. None of
 it is sent to us or to any server.</li>
-<li><strong>With an account (optional):</strong> if you choose to sign in, a limited set of data
-is stored in our cloud database so it can sync and (where you opt in) power
-community features. Sign-in uses Apple or Google via our authentication
+<li><strong>With an account (optional):</strong> signing in adds leaderboards and community
+reflections. What reaches our server is limited to: your profile (display
+name and avatar from Apple or Google, your selected themes, and your streak
+counters), your wisdom XP, and any community reflections or reports you
+choose to submit. Sign-in uses Apple or Google via our authentication
 provider (Supabase). We do not operate our own password system.</li>
+<li><strong>Tattvam does not sync across devices.</strong> Your lesson progress, saved quotes,
+journal entries, collections, streaks and game history stay on the device
+that created them — with or without an account. Installing Tattvam on a
+second device starts fresh, and uninstalling removes that data permanently.</li>
 </ul>
 <hr>
 <h2>2. What we collect and where it lives</h2>
@@ -85,8 +91,10 @@ keystore, not in normal app storage).</li>
 <h3>B. Data stored in our cloud database (only if you create an account)</h3>
 <p>We use <strong>Supabase</strong> (project reference <code>dkjlludfdfmfgzxfdapr</code>) as our hosted
 database and authentication backend. When you sign in, the following may be
-stored, each row protected so that you can only read or write your own records
-(Row-Level Security):</p>
+stored. Private tables are protected by Row-Level Security so that only you
+can read or write your own rows; your profile row and reaction counts are the
+deliberate exception — other users can read them, because that is what powers
+the public leaderboard and the community reaction percentages:</p>
 <table>
 <thead>
 <tr>
@@ -96,27 +104,15 @@ stored, each row protected so that you can only read or write your own records
 </thead>
 <tbody><tr>
 <td><code>user_profiles</code></td>
-<td>A display name, optional avatar URL, wisdom XP, current/longest streak, last-active date, and your selected themes. The display name and avatar come from the Apple/Google account you sign in with, or default to &quot;Seeker&quot;.</td>
-</tr>
-<tr>
-<td><code>user_progress</code></td>
-<td>Which questions and layers you have completed and XP earned.</td>
-</tr>
-<tr>
-<td><code>user_journal_entries</code></td>
-<td>Your private written reflections. <strong>Private to you</strong> — readable and writable only by you.</td>
-</tr>
-<tr>
-<td><code>user_collections</code></td>
-<td>Quotes you have saved. Private to you.</td>
-</tr>
-<tr>
-<td><code>user_reactions</code></td>
-<td>Your Agree / Disagree / Hmm reactions on certain content items.</td>
+<td>A display name, optional avatar URL, wisdom XP, current/longest streak, last-active date, and your selected themes. The display name and avatar come from the Apple/Google account you sign in with, or default to &quot;Seeker&quot;. Readable by other users to power the leaderboard.</td>
 </tr>
 <tr>
 <td><code>community_reflections</code></td>
 <td>A reflection you have <strong>explicitly chosen to share</strong> with the community (opt-in). See Section 3.</td>
+</tr>
+<tr>
+<td><code>reflection_reports</code> / <code>blocked_authors</code></td>
+<td>A report you file on a community reflection, or an author you block.</td>
 </tr>
 <tr>
 <td><code>sabha_rooms</code> / <code>sabha_members</code> / <code>sabha_events</code></td>
@@ -211,7 +207,7 @@ data brokers.</p>
 <p>We process personal data only to:</p>
 <ul>
 <li>provide and maintain the App and your account;</li>
-<li>save and sync your progress and saved content;</li>
+<li>store your profile, wisdom XP, and any reflections you share (nothing else leaves your device);</li>
 <li>power opt-in community reflections;</li>
 <li>keep the service secure and prevent abuse.</li>
 </ul>
@@ -223,11 +219,14 @@ process personal data on the basis of your <strong>consent</strong> and for the 
 purposes above.</p>
 <h2>9. Data retention</h2>
 <ul>
-<li>Local on-device data persists until you delete it or uninstall the App.</li>
+<li>Local on-device data persists until you delete it or uninstall the App, with
+one exception: saved quotes and journal entries are each capped at 500. When
+you save the 501st, the oldest one is removed to make room. You can export
+everything at any time from Profile → Export my data.</li>
 <li>Cloud account data is retained while your account exists. If you ask us to
-delete your account, we delete your associated rows (profile, progress,
-journal, collections, reactions, and reflections). Account deletion cascades
-from your authentication record by design.</li>
+delete your account, we delete your associated rows (profile, community
+reflections, reports and blocks). Account deletion cascades from your
+authentication record by design.</li>
 </ul>
 <h2>10. Children&#39;s data</h2>
 <p>Tattvam is intended for a general audience and is <strong>not directed at children</strong>.
@@ -245,8 +244,9 @@ India or the EEA). Where required, such transfers are made with appropriate
 safeguards (such as standard contractual clauses, where applicable). Guest data
 never leaves your device and is not transferred.</p>
 <h2>12. Security</h2>
-<p>Account data is protected by Row-Level Security so that only you can read or
-write your own records. Authentication tokens are stored in your device&#39;s secure
+<p>Private account data is protected by Row-Level Security so that only you can
+read or write your own rows; the deliberately public surface is limited to
+your profile row (leaderboard) and anonymous reaction counts. Authentication tokens are stored in your device&#39;s secure
 keystore. Network connections use HTTPS. No method of transmission or storage is
 perfectly secure, but we apply reasonable, industry-standard safeguards.</p>
 <hr>
