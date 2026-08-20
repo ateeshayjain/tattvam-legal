@@ -38,7 +38,7 @@
   </header>
   <nav><a href="./">Privacy Policy</a><span class="sep">·</span><a href="./terms.html">Terms of Service</a></nav>
   <h1>Privacy Policy — Tattvam</h1>
-<p><strong>Last updated:</strong> 9 August 2026
+<p><strong>Last updated:</strong> 20 August 2026
 <strong>Data Fiduciary / Controller:</strong> Ateeshay Jain (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;)
 <strong>Contact:</strong> <a href="mailto:ateeshay.jain@gmail.com">ateeshay.jain@gmail.com</a>
 <strong>Applies to:</strong> the Tattvam mobile application (the &quot;App&quot;) on iOS.</p>
@@ -54,16 +54,16 @@ Regulation (&quot;GDPR&quot;).</p>
 <h2>1. You can use Tattvam without an account</h2>
 <p>Tattvam works fully as a <strong>guest</strong>. You are not required to create an account or
 provide any personal information to read content, track your progress, take
-quizzes, journal, or play the Inner Compass game.</p>
+quizzes, or journal.</p>
 <ul>
 <li><strong>As a guest:</strong> all of your data (progress, streaks, saved quotes, journal
 entries, preferences, game history) is stored <strong>only on your device</strong>. None of
 it is sent to us or to any server.</li>
 <li><strong>With an account (optional):</strong> signing in adds leaderboards and community
 reflections. What reaches our server is limited to: your profile (display
-name and avatar from Apple or Google, your selected themes, and your streak
+name from Apple, your selected themes, and your streak
 counters), your wisdom XP, and any community reflections or reports you
-choose to submit. Sign-in uses Apple or Google via our authentication
+choose to submit. Sign-in uses Apple via our authentication
 provider (Supabase). We do not operate our own password system.</li>
 <li><strong>Tattvam does not sync across devices.</strong> Your lesson progress, saved quotes,
 journal entries, collections, streaks and game history stay on the device
@@ -79,11 +79,10 @@ SecureStore / iOS Keychain / Android Keystore):</p>
 <ul>
 <li>Reading and layer progress, completed questions, daily-question state.</li>
 <li>Gamification state when used as a guest (XP, streaks, ranks, quote-guessing history, daily quests, quote-collection progress, and stances you take on philosophical tensions).</li>
-<li>Inner Compass game run history.</li>
-<li>Saved quotes and journal entries when used as a guest.</li>
+<li>Hidden game history stored by development builds.</li>
+<li>Saved quotes and journal entries, whether or not you sign in.</li>
 <li>App preferences (e.g. simplified/scholarly reading mode, selected themes,
 notification settings, language).</li>
-<li>Your optional, self-supplied Anthropic (Claude) API key — see Section 4.</li>
 <li>Your authentication session tokens, if you sign in (held in the secure
 keystore, not in normal app storage).</li>
 </ul>
@@ -91,10 +90,9 @@ keystore, not in normal app storage).</li>
 <h3>B. Data stored in our cloud database (only if you create an account)</h3>
 <p>We use <strong>Supabase</strong> (project reference <code>dkjlludfdfmfgzxfdapr</code>) as our hosted
 database and authentication backend. When you sign in, the following may be
-stored. Private tables are protected by Row-Level Security so that only you
-can read or write your own rows; your profile row and reaction counts are the
-deliberate exception — other users can read them, because that is what powers
-the public leaderboard and the community reaction percentages:</p>
+stored. Private tables are protected by Row-Level Security. Leaderboards and
+community reading use restricted database functions that expose only the fields
+needed for those features, not the underlying private table rows:</p>
 <table>
 <thead>
 <tr>
@@ -104,7 +102,7 @@ the public leaderboard and the community reaction percentages:</p>
 </thead>
 <tbody><tr>
 <td><code>user_profiles</code></td>
-<td>A display name, optional avatar URL, wisdom XP, current/longest streak, last-active date, and your selected themes. The display name and avatar come from the Apple/Google account you sign in with, or default to &quot;Seeker&quot;. Readable by other users to power the leaderboard.</td>
+<td>A display name, optional avatar URL, wisdom XP, current/longest streak, weekly XP, last-active date, and your selected themes. The display name may come from Apple on first sign-in, or defaults to &quot;Seeker&quot;. The leaderboard function exposes only display names and XP totals; the profile table is not publicly readable.</td>
 </tr>
 <tr>
 <td><code>community_reflections</code></td>
@@ -114,21 +112,16 @@ the public leaderboard and the community reaction percentages:</p>
 <td><code>reflection_reports</code> / <code>blocked_authors</code></td>
 <td>A report you file on a community reflection, or an author you block.</td>
 </tr>
-<tr>
-<td><code>sabha_rooms</code> / <code>sabha_members</code> / <code>sabha_events</code></td>
-<td>If you join a live Sabhā multiplayer session: the room code, an anonymized handle, and the game-event log (choices in the game). No reflection or journal text is ever stored here, and stale rooms are automatically deleted within about 2 days.</td>
-</tr>
 </tbody></table>
 <p>We also receive, from our authentication provider at sign-in, the basic account
 identifier and profile fields (name, email-derived identifier, avatar) that
-Apple or Google passes through to create your account.</p>
+Apple passes through to create your account.</p>
 <p>We do <strong>not</strong> collect your contacts, photos, precise location, advertising
 identifiers, or browsing history. We do <strong>not</strong> use any analytics or tracking
 SDK. We do <strong>not</strong> track you across other apps or websites.</p>
-<p>If crash reporting is enabled in a given release, anonymous crash reports
-(stack trace, device model, OS version — configured to exclude personal
-content and request data) are sent to <strong>Sentry</strong> to help us fix bugs. Crash
-reports are not used for advertising or profiling.</p>
+<p>Version 1.0.1 does <strong>not</strong> enable crash reporting and does not send diagnostic
+events to Sentry. If a later release enables crash reporting, we will update
+this policy and the App Store privacy label before that release is distributed.</p>
 <h3>C. Bundled content</h3>
 <p>The philosophical content in the App (questions, quotes, translations) is
 shipped inside the App as static files. It contains no personal data and does
@@ -149,33 +142,18 @@ reflection.</p>
 public view. Please do not include personal or sensitive information in text you
 choose to share.</p>
 <hr>
-<h2>4. The &quot;Ask About This&quot; AI chat (optional, bring-your-own key)</h2>
-<p>The App includes an optional AI chat feature. To use it, <strong>you</strong> supply your own
-Anthropic (Claude) API key, which is stored only on your device.</p>
-<ul>
-<li>When you send a chat message, your message and the relevant question context
-are sent <strong>directly from your device to Anthropic&#39;s API</strong> (<code>api.anthropic.com</code>)
-using your key. The data does not pass through our servers.</li>
-<li>Anthropic&#39;s handling of that data is governed by <strong>Anthropic&#39;s own privacy
-policy and terms</strong>, which apply to your use of your own key. Please review them
-at anthropic.com.</li>
-<li>We never receive your API key or your chat content.</li>
-</ul>
-<p>If you do not add an API key, this feature is inactive and no chat data leaves
-your device.</p>
-<hr>
-<h2>5. Notifications</h2>
+<h2>4. Notifications</h2>
 <p>The App can show <strong>local reminders</strong> (e.g. a daily-practice nudge) that are
 scheduled on your device. We do <strong>not</strong> run a push-notification server and we do
 <strong>not</strong> collect or transmit device push tokens. You can disable notifications in
 your device settings at any time.</p>
-<h2>6. Sharing to WhatsApp / other apps</h2>
+<h2>5. Sharing to other apps</h2>
 <p>If you share a question to WhatsApp or another app, the App opens that app with
 a pre-filled text message via a system link. No personal data is sent to us in
 this process; what you share, and with whom, is controlled entirely by you in
 the other app.</p>
 <hr>
-<h2>7. Third parties we rely on</h2>
+<h2>6. Third parties we rely on</h2>
 <table>
 <thead>
 <tr>
@@ -190,20 +168,15 @@ the other app.</p>
 <td>Only if you create an account</td>
 </tr>
 <tr>
-<td><strong>Apple / Google</strong> (sign-in providers)</td>
+<td><strong>Apple</strong> (sign-in provider)</td>
 <td>Authenticate you</td>
-<td>Only if you sign in with them</td>
-</tr>
-<tr>
-<td><strong>Anthropic</strong> (Claude API)</td>
-<td>Powers the optional AI chat</td>
-<td>Only if you add your own API key and use the chat</td>
+<td>Only if you sign in</td>
 </tr>
 </tbody></table>
 <p>We do not sell your personal data, and we do not share it with advertisers or
 data brokers.</p>
 <hr>
-<h2>8. Purposes and legal bases for processing</h2>
+<h2>7. Purposes and legal bases for processing</h2>
 <p>We process personal data only to:</p>
 <ul>
 <li>provide and maintain the App and your account;</li>
@@ -217,7 +190,7 @@ sharing and notifications, withdrawable at any time), and our <strong>legitimate
 interests</strong> in operating and securing the service. Under the DPDP Act, we
 process personal data on the basis of your <strong>consent</strong> and for the specified
 purposes above.</p>
-<h2>9. Data retention</h2>
+<h2>8. Data retention</h2>
 <ul>
 <li>Local on-device data persists until you delete it or uninstall the App, with
 one exception: saved quotes and journal entries are each capped at 500. When
@@ -228,7 +201,7 @@ delete your account, we delete your associated rows (profile, community
 reflections, reports and blocks). Account deletion cascades from your
 authentication record by design.</li>
 </ul>
-<h2>10. Children&#39;s data</h2>
+<h2>9. Children&#39;s data</h2>
 <p>Tattvam is intended for a general audience and is <strong>not directed at children</strong>.
 We do not knowingly collect personal data from children. Under the DPDP Act,
 processing the data of a child (under 18 in India) requires verifiable parental
@@ -237,31 +210,31 @@ mode (which stores nothing with us) or obtain a parent&#39;s/guardian&#39;s cons
 before creating an account. Under GDPR, the App is not intended for children
 under 16. If you believe a child has provided us personal data, contact us and
 we will delete it.</p>
-<h2>11. International transfers</h2>
+<h2>10. International transfers</h2>
 <p>If you create an account, your account data is stored on Supabase&#39;s hosted
 infrastructure, which may be located outside your country (including outside
 India or the EEA). Where required, such transfers are made with appropriate
 safeguards (such as standard contractual clauses, where applicable). Guest data
 never leaves your device and is not transferred.</p>
-<h2>12. Security</h2>
-<p>Private account data is protected by Row-Level Security so that only you can
-read or write your own rows; the deliberately public surface is limited to
-your profile row (leaderboard) and anonymous reaction counts. Authentication tokens are stored in your device&#39;s secure
+<h2>11. Security</h2>
+<p>Private account data is protected by Row-Level Security. Restricted database
+functions return only leaderboard fields and anonymous community excerpts.
+Authentication tokens are stored in your device&#39;s secure
 keystore. Network connections use HTTPS. No method of transmission or storage is
 perfectly secure, but we apply reasonable, industry-standard safeguards.</p>
 <hr>
-<h2>13. Your rights</h2>
+<h2>12. Your rights</h2>
 <p>You can exercise the following rights. Many are also available directly in the
 App.</p>
 <p><strong>Everyone (in-app):</strong></p>
 <ul>
 <li><strong>Access / portability:</strong> your on-device data is yours; use <strong>Profile → Export
 My Data</strong> in the App to export everything at any time (or contact us).</li>
-<li><strong>Erasure:</strong> use <strong>Profile → Delete Account</strong> in the App to permanently erase
-your account and all associated cloud data at any time; deleting the App or
-clearing its data removes local data.</li>
+<li><strong>Erasure:</strong> signed-in users can use <strong>Profile → Account → Delete Account</strong> to
+revoke the Apple authorization, erase the account and associated cloud data,
+and clear local data. Guests can use <strong>Profile → Account → Erase Local Data</strong>.</li>
 <li><strong>Withdraw consent:</strong> turn off notifications, withdraw shared community
-reflections, or remove your AI API key at any time.</li>
+reflections at any time.</li>
 </ul>
 <p><strong>Under the DPDP Act (India)</strong>, you have the right to access a summary of your
 personal data and processing, to correction and erasure, to grievance redressal,
@@ -273,10 +246,10 @@ your data protection authority.</p>
 <p>To exercise any right, or to raise a grievance, contact us at
 <strong><a href="mailto:ateeshay.jain@gmail.com">ateeshay.jain@gmail.com</a></strong>. We will respond within the timelines required by
 applicable law.</p>
-<h2>14. Changes to this policy</h2>
+<h2>13. Changes to this policy</h2>
 <p>We may update this policy. Material changes will be reflected by updating the
 &quot;Last updated&quot; date and, where appropriate, an in-app notice.</p>
-<h2>15. Contact / Grievance Officer</h2>
+<h2>14. Contact / Grievance Officer</h2>
 <p>Ateeshay Jain
 Email: <strong><a href="mailto:ateeshay.jain@gmail.com">ateeshay.jain@gmail.com</a></strong></p>
 <p>For users in India, this email also serves as the contact point for grievances
