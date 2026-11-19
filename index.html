@@ -38,7 +38,7 @@
   </header>
   <nav><a href="./">Privacy Policy</a><span class="sep">·</span><a href="./terms.html">Terms of Service</a></nav>
   <h1>Privacy Policy — Tattvam</h1>
-<p><strong>Last updated:</strong> 20 September 2026
+<p><strong>Last updated:</strong> 11 October 2026
 <strong>Data Fiduciary / Controller:</strong> Ateeshay Jain (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;)
 <strong>Contact:</strong> <a href="mailto:ateeshay.jain@gmail.com">ateeshay.jain@gmail.com</a>
 <strong>Applies to:</strong> the Tattvam mobile application (the &quot;App&quot;) on iOS.</p>
@@ -79,14 +79,13 @@ SecureStore / iOS Keychain / Android Keystore):</p>
 <ul>
 <li>Reading and layer progress, completed questions, daily-question state.</li>
 <li>Gamification state when used as a guest (XP, streaks, ranks, quote-guessing history, daily quests, quote-collection progress, and stances you take on philosophical tensions).</li>
-<li>Hidden game history stored by development builds.</li>
 <li>Saved quotes and journal entries, whether or not you sign in.</li>
 <li>App preferences (e.g. simplified/scholarly reading mode, selected themes,
 notification settings, language).</li>
 <li>Your authentication session tokens, if you sign in (held in the secure
 keystore, not in normal app storage).</li>
 </ul>
-<p>We cannot see this data. It is removed if you delete the App or clear its data.</p>
+<p>We cannot see this data. App-storage data is removed if you delete the App or clear its data. Your sign-in tokens are held in the iOS Keychain, which can keep them after the App is deleted, so reinstalling may restore your signed-in session; sign out inside the App first if you want them cleared.</p>
 <h3>B. Data stored in our cloud database (only if you create an account)</h3>
 <p>We use <strong>Supabase</strong> (project reference <code>dkjlludfdfmfgzxfdapr</code>) as our hosted
 database and authentication backend. When you sign in, the following may be
@@ -119,7 +118,7 @@ Apple passes through to create your account.</p>
 <p>We do <strong>not</strong> collect your contacts, photos, precise location, advertising
 identifiers, or browsing history. We do <strong>not</strong> use any analytics or tracking
 SDK. We do <strong>not</strong> track you across other apps or websites.</p>
-<p>Version 1.0.1 does <strong>not</strong> enable crash reporting and does not send diagnostic
+<p>This version of the App does <strong>not</strong> enable crash reporting and does not send diagnostic
 events to Sentry. If a later release enables crash reporting, we will update
 this policy and the App Store privacy label before that release is distributed.</p>
 <h3>C. Bundled content</h3>
